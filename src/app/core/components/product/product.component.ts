@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from '../../models/product.interface';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
@@ -11,11 +11,12 @@ export class ProductComponent {
   // === Icons ===
   faTrash = faTrash;
 
-  // === Inputs ===
+  // === Inputs & Outputs ===
   @Input() product!: Product & { stock: number };
+  @Output() delete = new EventEmitter<Product>();
 
-  // === Lifecycle Hooks ===
-  ngOnInit(): void {
-    console.log(this.product);
+  // === Métodos Públicos ===
+  public deleteProduct(product: Product) {
+    this.delete.emit(product);
   }
 }

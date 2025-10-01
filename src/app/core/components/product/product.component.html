@@ -20,10 +20,13 @@
       <strong>Stock:</strong> {{ product.stock }}
     </p>
     <div class="product-card__action-btns">
-      <a href="#" class="product-card__btn details-btn">Ver Detalles</a>
-      <a href="#" class="product-card__btn delete-btn">
+      <button class="product-card__btn details-btn">Ver Detalles</button>
+      <button
+        class="product-card__btn delete-btn"
+        (click)="deleteProduct(product)"
+      >
         <fa-icon [icon]="faTrash" class="trash-icon"></fa-icon> Eliminar
-      </a>
+      </button>
     </div>
   </div>
 </div>

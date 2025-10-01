@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import {
   HttpClientTestingModule,
-  HttpTestingController
+  HttpTestingController,
 } from '@angular/common/http/testing';
 
 import { ProductService } from './product.service';
@@ -22,15 +22,15 @@ describe('ProductService', () => {
     image: 'https://example.com/image.png',
     rating: {
       rate: 4.5,
-      count: 10
-    }
+      count: 10,
+    },
   };
 
   const mockProducts: Product[] = [mockProduct, { ...mockProduct, id: 2 }];
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule]
+      imports: [HttpClientTestingModule],
     });
     service = TestBed.inject(ProductService);
     httpMock = TestBed.inject(HttpTestingController);
@@ -88,12 +88,17 @@ describe('ProductService', () => {
   });
 
   it('should update a product', () => {
-    const updatedProduct: Product = { ...mockProduct, title: 'Updated Product' };
+    const updatedProduct: Product = {
+      ...mockProduct,
+      title: 'Updated Product',
+    };
     let response: Product | undefined;
 
-    service.updateProduct(updatedProduct.id, updatedProduct).subscribe((product) => {
-      response = product;
-    });
+    service
+      .updateProduct(updatedProduct.id, updatedProduct)
+      .subscribe((product) => {
+        response = product;
+      });
 
     const req = httpMock.expectOne(`${baseUrl}products/${updatedProduct.id}`);
     expect(req.request.method).toBe('PUT');
@@ -110,7 +115,6 @@ describe('ProductService', () => {
       response = res;
     });
 
-    console.log(`${baseUrl}products/${mockProduct.id}`);
     const req = httpMock.expectOne(`${baseUrl}products/${mockProduct.id}`);
     expect(req.request.method).toBe('DELETE');
     req.flush(mockProduct);

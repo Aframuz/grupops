@@ -59,9 +59,12 @@
   <div class="dashboard__action-bar-container">
     <ul class="dashboard__action-bar">
       <li class="dashboard__action-bar-item">
-        <a class="dashboard__action-bar-link" routerLink="/products/new"
-          >Agregar producto</a
+        <button
+          class="dashboard__action-bar-btn"
+          (click)="openAddProductModal()"
         >
+          Agregar producto
+        </button>
       </li>
     </ul>
   </div>
@@ -75,3 +78,7 @@
     <app-products-list></app-products-list>
   </div>
 </main>
+
+<ng-template #content let-modal>
+  <app-add-product-modal></app-add-product-modal>
+</ng-template>

@@ -5,18 +5,24 @@ import { ProductsListComponent } from '../../components/products-list/products-l
 import { ProductComponent } from '../../components/product/product.component';
 import { ProductsDashboardRoutingModule } from './products-dashboard-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AddProductModalComponent } from '../../components/add-product-modal/add-product-modal.component';
+import { NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     ProductsDashboardComponent,
     ProductsListComponent,
-    ProductComponent
+    AddProductModalComponent,
+    ProductComponent,
   ],
   imports: [
     CommonModule,
     ProductsDashboardRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgbTooltip,
+    ReactiveFormsModule,
   ],
-  exports: [ProductsDashboardComponent]
+  exports: [ProductsDashboardComponent],
 })
-export class ProductsDashboardModule { }
+export class ProductsDashboardModule {}

@@ -67,7 +67,11 @@
     transition: background-color 0.3s ease;
 
     &:hover {
-      //   background-color: darken(var(--primary-color), 10%);
+      background-color: color-mix(
+        in srgb,
+        var(--secondary-color) 80%,
+        #000 20%
+      );
     }
   }
 }

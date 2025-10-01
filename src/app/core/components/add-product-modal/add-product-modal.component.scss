@@ -1,0 +1,11 @@
+.agregar-btn {
+  color: #fff;
+  background-color: var(--primary-color);
+  border: none;
+  transition: background 0.2s;
+}
+
+.agregar-btn:hover,
+.agregar-btn:focus {
+  background-color: color-mix(in srgb, var(--primary-color) 80%, #000 20%);
+}

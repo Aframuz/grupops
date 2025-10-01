@@ -121,7 +121,8 @@
     list-style: none;
   }
 
-  &__action-bar-link {
+  &__action-bar-btn {
+    border: none;
     text-decoration: none;
     color: #fff;
     background-color: var(--primary-color);

@@ -26,6 +26,17 @@ export class ProductsListComponent {
     this._fetchProducts();
   }
 
+  // === Métodos Públicos ===
+  /**
+   * Elimina un producto de la lista de productos
+   * @param productToDelete producto a filtrar de la lista de productos
+   */
+  public onDeleteProduct(productToDelete: Product): void {
+    this.products = this.products.filter(
+      (p) => p.title !== productToDelete.title
+    );
+  }
+
   // === Métodos Privados ====
   /**
    * Trae los productos desde la API

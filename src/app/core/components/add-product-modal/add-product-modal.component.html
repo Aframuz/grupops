@@ -1,0 +1,89 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Agregar Producto</h4>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="activeModal.dismiss()"
+  ></button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="addProductForm">
+    <div class="mb-3">
+      <div class="mb-3">
+        <label for="productImage" class="form-label">Imagen</label>
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            id="productImage"
+            formControlName="image"
+            placeholder="URL o nombre de archivo"
+            [disabled]="true"
+          />
+          <button type="button" class="btn btn-secondary" tabindex="-1">
+            Upload
+          </button>
+        </div>
+      </div>
+      <label for="productName" class="form-label">Nombre</label>
+      <input
+        type="text"
+        class="form-control"
+        id="productName"
+        formControlName="name"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="productDescription" class="form-label">Descripción</label>
+      <textarea
+        class="form-control"
+        id="productDescription"
+        formControlName="description"
+        rows="3"
+        required
+      ></textarea>
+    </div>
+    <div class="mb-3">
+      <div class="d-flex gap-3">
+        <div class="flex-fill">
+          <label for="productPrice" class="form-label">Precio</label>
+          <input
+            type="number"
+            class="form-control"
+            id="productPrice"
+            formControlName="price"
+            min="0"
+            step="0.01"
+            required
+          />
+        </div>
+        <div class="flex-fill">
+          <label for="productStock" class="form-label">Stock</label>
+          <input
+            type="number"
+            class="form-control"
+            id="productStock"
+            formControlName="stock"
+            min="0"
+            required
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button
+    type="button"
+    class="btn agregar-btn"
+    ngbTooltip="¡En construcción!"
+    #t="ngbTooltip"
+    (click)="onAddProductClick(t)"
+    triggers="manual"
+    [disabled]="addProductForm.invalid"
+  >
+    Agregar Producto
+  </button>
+</div>
