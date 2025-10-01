@@ -1,168 +1,173 @@
 // NavBar
 .navbar {
-    padding: 0 2rem;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  box-shadow: rgba(0, 66.00000000000004, 138, 0.09) 0px 0px 19px 8px;
+
+  &__logo-img {
+    height: 90px;
+  }
+
+  &__menu-list {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    background-color: #fff;
-    box-shadow: rgba(0, 66.00000000000004, 138, 0.09) 0px 0px 19px 8px;
+    gap: 1rem;
+    margin-bottom: 0;
+  }
 
-    &__logo-img {
-        height: 90px;
+  &__menu-item {
+    padding: 2rem 1.5rem;
+    list-style: none;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #007bff;
     }
+  }
 
-    &__menu-list {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin-bottom: 0;
-    }
-
-    &__menu-item {
-        padding: 2rem 1.5rem;
-        list-style: none;
-        font-weight: 600;
-        color: #333;
-        cursor: pointer;
-        transition: color 0.3s ease;
-
-        &:hover {
-            color: #007bff;
-        }
-    }
-
-    &__menu-link {
-        text-decoration: none;
-        color: var(--primary-color)
-    }
+  &__menu-link {
+    text-decoration: none;
+    color: var(--primary-color);
+  }
 }
 
 // CTA botón WhatsApp
 .cta-btn {
+  display: flex;
+  justify-content: center;
+  padding: 15px 30px; // ?
+  border-radius: 50px;
+  background-color: var(--secondary-color);
+  box-shadow: 0px 0px 19px 8px rgba(0, 66.00000000000004, 138, 0.09);
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  fill: #fff;
+  color: #fff;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+
+  & .wsp-icon-container {
     display: flex;
-    justify-content: center;
-    padding: 15px 30px; // ?
-    border-radius: 50px;
-    background-color: var(--secondary-color);
-    box-shadow: 0px 0px 19px 8px rgba(0, 66.00000000000004, 138, 0.09);
-    border: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    fill: #fff;
-    color: #fff;
-    text-transform: uppercase;
-    transition: background-color 0.3s ease;
+    align-items: center;
 
-    & .wsp-icon-container {
-        display: flex;
-        align-items: center;
-
-        & .wsp-icon {
-            display: inherit;
-            align-items: center;
-            margin-right: 8px;
-        }
+    & .wsp-icon {
+      display: inherit;
+      align-items: center;
+      margin-right: 8px;
     }
+  }
 
-    & .btn-inner-text {
-        line-height: 1;
-    }
+  & .btn-inner-text {
+    line-height: 1;
+  }
 
-    &:hover {
-        background-color: var(--primary-color);
-        cursor: pointer;
-    }
+  &:hover {
+    background-color: var(--primary-color);
+    cursor: pointer;
+  }
 }
 
 .dashboard {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    gap: 8px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto repeat(4, 1fr);
+  gap: 8px;
 
-    min-height: calc(100vh - 108px);
-    padding: 4rem;
-    border: 1px solid red;
+  min-height: calc(100vh - 108px);
+  padding: 4rem;
 
-    &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
-        background: url('../../../../assets/images/bg-1.jpg') center center / cover no-repeat fixed;
-        filter: blur(3px) brightness(0.8) opacity(0.35);
-        z-index: -1;
+  &::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../../../../assets/images/bg-1.jpg") center center / cover
+      no-repeat fixed;
+    filter: blur(3px) brightness(0.8) opacity(0.35);
+    z-index: -1;
+  }
+
+  // ======= Barra de acciones (añadir producto) =======
+  &__action-bar-container {
+    height: auto;
+    align-self: start;
+    grid-column: span 3 / span 3;
+    grid-column-start: 2;
+  }
+
+  &__action-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 1rem;
+    margin: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: rgba(0, 66.00000000000004, 138, 0.09) 0px 0px 19px 8px;
+  }
+
+  &__action-bar-item {
+    list-style: none;
+  }
+
+  &__action-bar-link {
+    text-decoration: none;
+    color: #fff;
+    background-color: var(--primary-color);
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    &:hover {
+      background-color: color-mix(in srgb, var(--primary-color) 80%, #000 20%);
     }
+  }
 
-    // ======= Barra de acciones (añadir producto) =======
-    &__action-bar-container {
-        grid-column: span 3 / span 3;
-        grid-column-start: 2;
+  // ======= Barra de filtrado y ordenamiento =======
+  &__filter-sort-container {
+    grid-row: span 4 / span 4;
+    grid-row-start: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.8);
+
+    & span {
+      text-align: center;
+      vertical-align: middle;
+      font-weight: 600;
+      font-size: 1.2rem;
+      text-wrap: balance;
+      color: var(--primary-color);
     }
+  }
 
-    &__action-bar {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        padding: 1rem;
-        margin: 0;
-        background-color: rgba(255, 255, 255, 0.8);
-        border-radius: 8px;
-        box-shadow: rgba(0, 66.00000000000004, 138, 0.09) 0px 0px 19px 8px;
-    }
+  // ======= Lista de productos =======
+  &__products-list {
+    grid-column: span 3 / span 3;
+    grid-row: span 4 / span 4;
+    grid-row-start: 2;
 
-    &__action-bar-item {
-        list-style: none;
-    }
+    padding: 1rem;
 
-    &__action-bar-link {
-        text-decoration: none;
-        color: #fff;
-        background-color: var(--primary-color);
-        font-weight: 600;
-        padding: 0.5rem 1rem;
-        border-radius: 4px;
-        transition: background-color 0.3s ease, color 0.3s ease;
-
-        &:hover {
-            background-color: color-mix(in srgb, var(--primary-color) 80%, #000 20%);
-        }
-    }
-
-    // ======= Barra de filtrado y ordenamiento =======
-    &__filter-sort-container {
-        grid-row: span 4 / span 4;
-        grid-row-start: 2;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        & span {
-            text-align: center;
-            vertical-align: middle;
-            font-weight: 600;
-            font-size: 1.2rem;
-            text-wrap: balance;
-            color: var(--primary-color)
-        }
-    }
-
-    // ======= Lista de productos =======
-    &__products-list {
-        grid-column: span 3 / span 3;
-        grid-row: span 4 / span 4;
-        grid-row-start: 2;
-
-        padding: 1rem;
-
-        background-color: rgba(255, 255, 255, 0.8);
-        border-radius: 8px;
-        box-shadow: rgba(0, 66.00000000000004, 138, 0.09) 0px 0px 19px 8px;
-    }
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: rgba(0, 66.00000000000004, 138, 0.09) 0px 0px 19px 8px;
+  }
 }

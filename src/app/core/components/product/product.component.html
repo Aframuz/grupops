@@ -1,0 +1,29 @@
+<div class="product-card">
+  <div class="product-card__img-container">
+    <img
+      [src]="product.image"
+      class="product-card__img"
+      width="auto"
+      height="150px"
+      alt="{{ product.title }}"
+    />
+  </div>
+  <div class="product-card__body">
+    <h5 class="product-card__title">{{ product.title }}</h5>
+    <p class="product-card__description ellipsis-multiline">
+      {{ product.description }}
+    </p>
+    <p class="product-card__price">
+      <strong>Precio:</strong> {{ product.price | currency }}
+    </p>
+    <p class="product-card__stock">
+      <strong>Stock:</strong> {{ product.stock }}
+    </p>
+    <div class="product-card__action-btns">
+      <a href="#" class="product-card__btn details-btn">Ver Detalles</a>
+      <a href="#" class="product-card__btn delete-btn">
+        <fa-icon [icon]="faTrash" class="trash-icon"></fa-icon> Eliminar
+      </a>
+    </div>
+  </div>
+</div>

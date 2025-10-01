@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ProductsDashboardModule } from './core/pages/products-dashboard/products-dashboard.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,9 +17,12 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     AppRoutingModule,
     ProductsDashboardModule,
     NgbModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    HttpClient,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

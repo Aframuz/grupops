@@ -1,51 +1,77 @@
 <header>
-    <nav class="navbar">
-        <div class="navbar__logo-container">
-            <a class="navbar__logo" routerLink="/">
-                <img class="navbar__logo-img" src="assets/images/logo.jpeg" alt="PS Grupo Hunting Logo">
-            </a>
-        </div>
-        <div class="navbar__menu">
-            <ul class="navbar__menu-list">
-                <li class="navbar__menu-item">
-                    <a class="navbar__menu-link" href="https://www.psgrupohunting.cl/">Inicio</a>
-                </li>
-                <li class="navbar__menu-item">
-                    <a class="navbar__menu-link" href="https://www.psgrupohunting.cl/quienes-somos/">Quienes somos</a>
-                </li>
-                <li class="navbar__menu-item">
-                    <a class="navbar__menu-link" href="https://www.psgrupohunting.cl/servicios/">Servicios</a>
-                </li>
-                <li class="navbar__menu-item">
-                    <a class="navbar__menu-link" href="https://www.psgrupohunting.cl/servicios/">Blog de noticias</a>
-                </li>
-                <li class="navbar__menu-item" href="https://www.psgrupohunting.cl/contacto/">
-                    <a class="navbar__menu-link" >Contacto</a>
-                </li>
-                <li class="navbar__menu-item ">
-                    <button class="navbar__menu-button cta-btn">
-                        <span class="wsp-icon-container">
-                            <fa-icon [icon]="faWhatsapp" class="wsp-icon"></fa-icon>
-                        </span>
-                        <span class="btn-inner-text">Contáctanos</span>
-                    </button>
-                </li>
-            </ul>
-        </div>
-    </nav>
+  <nav class="navbar">
+    <div class="navbar__logo-container">
+      <a class="navbar__logo" routerLink="/">
+        <img
+          class="navbar__logo-img"
+          src="assets/images/logo.jpeg"
+          alt="PS Grupo Hunting Logo"
+        />
+      </a>
+    </div>
+    <div class="navbar__menu">
+      <ul class="navbar__menu-list">
+        <li class="navbar__menu-item">
+          <a class="navbar__menu-link" href="https://www.psgrupohunting.cl/"
+            >Inicio</a
+          >
+        </li>
+        <li class="navbar__menu-item">
+          <a
+            class="navbar__menu-link"
+            href="https://www.psgrupohunting.cl/quienes-somos/"
+            >Quienes somos</a
+          >
+        </li>
+        <li class="navbar__menu-item">
+          <a
+            class="navbar__menu-link"
+            href="https://www.psgrupohunting.cl/servicios/"
+            >Servicios</a
+          >
+        </li>
+        <li class="navbar__menu-item">
+          <a
+            class="navbar__menu-link"
+            href="https://www.psgrupohunting.cl/servicios/"
+            >Blog de noticias</a
+          >
+        </li>
+        <li
+          class="navbar__menu-item"
+          href="https://www.psgrupohunting.cl/contacto/"
+        >
+          <a class="navbar__menu-link">Contacto</a>
+        </li>
+        <li class="navbar__menu-item">
+          <button class="navbar__menu-button cta-btn">
+            <span class="wsp-icon-container">
+              <fa-icon [icon]="faWhatsapp" class="wsp-icon"></fa-icon>
+            </span>
+            <span class="btn-inner-text">Contáctanos</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
 </header>
 <main class="dashboard">
-    <div class="dashboard__action-bar-container">
-        <ul class="dashboard__action-bar">
-            <li class="dashboard__action-bar-item">
-                <a class="dashboard__action-bar-link" routerLink="/products/new">Agregar producto</a>
-            </li>
-        </ul>
-    </div>
-    <div class="dashboard__filter-sort-container">
-        <span>AQUI PUEDE IR FILTRADO Y ORDENAMIENTO DE ITEMS</span>
-    </div>
-    <div class="dashboard__products-list">
-        <app-products-list></app-products-list>
-    </div>
+  <div class="dashboard__action-bar-container">
+    <ul class="dashboard__action-bar">
+      <li class="dashboard__action-bar-item">
+        <a class="dashboard__action-bar-link" routerLink="/products/new"
+          >Agregar producto</a
+        >
+      </li>
+    </ul>
+  </div>
+  <div class="dashboard__filter-sort-container">
+    <span
+      >AQUI PUEDE IR FILTRADO Y ORDENAMIENTO DE ITEMS STICKY QUE SE MUESTRA AL
+      HACER SCROLL</span
+    >
+  </div>
+  <div class="dashboard__products-list">
+    <app-products-list></app-products-list>
+  </div>
 </main>
