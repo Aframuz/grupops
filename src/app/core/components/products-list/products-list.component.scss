@@ -13,6 +13,8 @@
   padding: 2rem 1rem;
 }
 
+// === Media Queries ===
+// Hack porque no funcionaba en pantallas pequeñas
 @media (max-width: 360px) {
   .products-list {
     grid-template-columns: max-content;

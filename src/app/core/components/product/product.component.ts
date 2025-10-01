@@ -8,7 +8,8 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent {
-  // === Icons ===
+  // === Estado ===
+  // Iconos
   faTrash = faTrash;
 
   // === Inputs & Outputs ===
@@ -16,6 +17,10 @@ export class ProductComponent {
   @Output() delete = new EventEmitter<Product>();
 
   // === Métodos Públicos ===
+  /**
+   * Emite el evento para eliminar un producto de la lista
+   * @param product Producto a eliminar
+   */
   public deleteProduct(product: Product) {
     this.delete.emit(product);
   }

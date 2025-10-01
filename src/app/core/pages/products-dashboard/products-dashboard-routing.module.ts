@@ -5,12 +5,12 @@ import { ProductsDashboardComponent } from './products-dashboard.component';
 const routes: Routes = [
   {
     path: '',
-    component: ProductsDashboardComponent
-  }
+    component: ProductsDashboardComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class ProductsDashboardRoutingModule {}

@@ -3,6 +3,7 @@
   width: 100%;
 }
 
+// Tarjeta producto
 .product-card {
   display: flex;
   flex-direction: column;
@@ -107,6 +108,7 @@
   }
 }
 
+// Clase helper para truncar texto a 3 líneas con puntos suspensivos
 .ellipsis-multiline {
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -115,6 +117,7 @@
   overflow: hidden;
 }
 
+// === Media Queries ===
 @media (min-width: 640px) {
   .product-card {
     &__img-container {

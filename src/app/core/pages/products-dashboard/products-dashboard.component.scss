@@ -122,6 +122,7 @@
   }
 }
 
+// Dashboard
 .dashboard {
   position: relative;
   display: flex;
@@ -210,6 +211,7 @@
   }
 }
 
+// Media Queries (tablet a desktop)
 @media (min-width: 576px) {
   .navbar {
     &__logo-img {

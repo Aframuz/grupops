@@ -27,7 +27,11 @@ export class AddProductModalComponent implements OnInit {
     });
   }
 
-  // === Métodos Públicos ===
+  // === Métodos Públicos ===s
+  /**
+   * Levanta el tooltip que reemplaza la funcionalidad de agregar producto
+   * @param tooltip Tooltip que se levanta
+   */
   onAddProductClick(tooltip: any) {
     tooltip.open();
     setTimeout(() => tooltip.close(), 1500);

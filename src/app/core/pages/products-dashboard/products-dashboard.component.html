@@ -1,3 +1,4 @@
+<!-- Navbar -->
 <header>
   <nav class="navbar">
     <div class="navbar__logo-container">
@@ -77,7 +78,10 @@
     </div>
   </nav>
 </header>
+
+<!-- Contenido principal -->
 <main class="dashboard">
+  <!-- Barra de acciones (pensé en más acciones pero dejo solo agregar productos) -->
   <div class="dashboard__action-bar-container">
     <ul class="dashboard__action-bar">
       <li class="dashboard__action-bar-item">
@@ -90,17 +94,21 @@
       </li>
     </ul>
   </div>
+  <!-- Filtro y ordenamiento, funcionalidad no implementada -->
   <div class="dashboard__filter-sort-container">
     <span
       >AQUI PUEDE IR FILTRADO Y ORDENAMIENTO DE ITEMS STICKY QUE SE MUESTRA AL
       HACER SCROLL</span
     >
   </div>
+
+  <!-- Catalogo de productos -->
   <div class="dashboard__products-list">
     <app-products-list></app-products-list>
   </div>
 </main>
 
+<!-- Modal de agregar productos -->
 <ng-template #content let-modal>
   <app-add-product-modal></app-add-product-modal>
 </ng-template>

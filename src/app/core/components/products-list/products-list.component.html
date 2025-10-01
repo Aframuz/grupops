@@ -1,9 +1,11 @@
+<!-- Si está cargando productos... -->
 <div *ngIf="isLoading" class="loading-placeholder">
   <!-- No encontré otro gif mejor 😔 -->
   <img src="assets/images/loading.gif" alt="Cargando" />
   <span>Cargando productos...</span>
 </div>
 
+<!-- Si no, muestra la lista -->
 <div *ngIf="!isLoading" class="products-list">
   <app-product
     *ngFor="let product of products"
