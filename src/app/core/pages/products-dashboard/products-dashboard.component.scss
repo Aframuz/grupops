@@ -1,38 +1,86 @@
 // NavBar
 .navbar {
-  padding: 0 2rem;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1rem;
+  padding: 1rem;
   background-color: #fff;
   box-shadow: rgba(0, 66.00000000000004, 138, 0.09) 0px 0px 19px 8px;
+  position: relative;
+
+  &__logo-container {
+    display: flex;
+    justify-content: center;
+  }
 
   &__logo-img {
-    height: 90px;
+    height: 64px;
   }
 
   &__menu-list {
     display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__menu {
+    width: 100%;
   }
 
   &__menu-item {
-    padding: 2rem 1.5rem;
     list-style: none;
     font-weight: 600;
     color: #333;
-    cursor: pointer;
     transition: color 0.3s ease;
-
-    &:hover {
-      color: #007bff;
-    }
   }
 
   &__menu-link {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    text-align: center;
     text-decoration: none;
+    color: var(--primary-color);
+    border-radius: 0.75rem;
+    background-color: rgba(0, 66, 138, 0.06);
+
+    &:hover {
+      background-color: rgba(0, 66, 138, 0.12);
+    }
+  }
+
+  &__toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    background-color: transparent;
+    border: 1px solid rgba(0, 66, 138, 0.35);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+
+    &:hover,
+    &:focus-visible {
+      background-color: rgba(0, 66, 138, 0.08);
+      border-color: rgba(0, 66, 138, 0.6);
+      outline: none;
+    }
+  }
+
+  &__toggle.is-active {
+    border-color: rgba(0, 66, 138, 0.6);
+    background-color: rgba(0, 66, 138, 0.12);
+  }
+
+  &__toggle-icon {
+    font-size: 1.375rem;
     color: var(--primary-color);
   }
 }
@@ -41,17 +89,17 @@
 .cta-btn {
   display: flex;
   justify-content: center;
-  padding: 15px 30px; // ?
+  padding: 0.9rem 1.5rem;
   border-radius: 50px;
   background-color: var(--secondary-color);
   box-shadow: 0px 0px 19px 8px rgba(0, 66.00000000000004, 138, 0.09);
   border: none;
   font-size: 0.9rem;
   font-weight: 500;
-  fill: #fff;
   color: #fff;
   text-transform: uppercase;
   transition: background-color 0.3s ease;
+  width: 100%;
 
   & .wsp-icon-container {
     display: flex;
@@ -75,13 +123,12 @@
 }
 
 .dashboard {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: auto repeat(4, 1fr);
-  gap: 8px;
-
-  min-height: calc(100vh - 108px);
-  padding: 4rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-height: calc(100vh - 80px);
+  padding: 1.25rem 1rem 2.5rem;
 
   &::before {
     content: "";
@@ -98,23 +145,27 @@
     z-index: -1;
   }
 
-  // ======= Barra de acciones (añadir producto) =======
+  &__action-bar-container,
+  &__filter-sort-container,
+  &__products-list {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    box-shadow: rgba(0, 66.00000000000004, 138, 0.09) 0px 0px 19px 8px;
+  }
+
   &__action-bar-container {
-    height: auto;
-    align-self: start;
-    grid-column: span 3 / span 3;
-    grid-column-start: 2;
+    order: 1;
+    padding: 1.25rem 1rem;
   }
 
   &__action-bar {
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 1rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    padding: 0;
     margin: 0;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 8px;
-    box-shadow: rgba(0, 66.00000000000004, 138, 0.09) 0px 0px 19px 8px;
+    list-style: none;
   }
 
   &__action-bar-item {
@@ -127,8 +178,8 @@
     color: #fff;
     background-color: var(--primary-color);
     font-weight: 600;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
+    padding: 0.9rem 1rem;
+    border-radius: 8px;
     transition: background-color 0.3s ease, color 0.3s ease;
 
     &:hover {
@@ -136,39 +187,236 @@
     }
   }
 
-  // ======= Barra de filtrado y ordenamiento =======
   &__filter-sort-container {
-    grid-row: span 4 / span 4;
-    grid-row-start: 2;
-
+    order: 2;
+    padding: 1.5rem 1.25rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.8);
-
     & span {
       text-align: center;
       vertical-align: middle;
       font-weight: 600;
-      font-size: 1.2rem;
-      text-wrap: balance;
+      font-size: 1.05rem;
       color: var(--primary-color);
     }
   }
 
-  // ======= Lista de productos =======
   &__products-list {
-    grid-column: span 3 / span 3;
-    grid-row: span 4 / span 4;
-    grid-row-start: 2;
+    order: 3;
+    padding: 1rem 0.5rem;
+  }
+}
 
-    padding: 1rem;
+@media (min-width: 576px) {
+  .navbar {
+    &__logo-img {
+      height: 72px;
+    }
 
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 8px;
-    box-shadow: rgba(0, 66.00000000000004, 138, 0.09) 0px 0px 19px 8px;
+    &__menu-link {
+      padding: 1rem 1.25rem;
+    }
+  }
+
+  .dashboard {
+    padding: 2rem 1.5rem 2.75rem;
+
+    &__action-bar-btn {
+      max-width: 320px;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 2rem;
+    gap: 1.5rem;
+
+    &__logo-container {
+      justify-content: flex-start;
+    }
+
+    &__logo-img {
+      height: 90px;
+    }
+
+    &__toggle {
+      display: inline-flex;
+    }
+
+    &__menu {
+      position: absolute;
+      top: calc(100% + 0.75rem);
+      right: 2rem;
+      width: min(320px, calc(100vw - 4rem));
+      padding: 1rem 1.25rem;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: rgba(15, 23, 42, 0.12) 0px 20px 40px -24px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-6px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    &__menu.is-open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    &__menu-list {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.75rem;
+    }
+
+    &__menu-item {
+      padding: 0;
+    }
+
+    &__menu-link {
+      padding: 0.5rem 0;
+      background-color: transparent;
+      text-align: left;
+      border-radius: 0;
+      color: var(--primary-color);
+
+      &:hover {
+        color: color-mix(in srgb, var(--primary-color) 65%, #000 35%);
+      }
+    }
+
+    &__menu-button {
+      width: 100%;
+    }
+  }
+
+  .cta-btn {
+    width: 100%;
+  }
+
+  .dashboard {
+    padding: 2.5rem 2rem 3rem;
+
+    &__action-bar-container {
+      padding: 1.5rem 1.75rem;
+    }
+
+    &__action-bar {
+      flex-direction: row;
+      justify-content: flex-end;
+      gap: 1rem;
+    }
+
+    &__action-bar-btn {
+      margin: 0;
+      width: auto;
+    }
+
+    &__filter-sort-container {
+      padding: 2rem;
+    }
+
+    &__products-list {
+      padding: 1.5rem;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .dashboard {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: auto repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+    padding: 3rem 3.25rem;
+
+    &__action-bar-container,
+    &__filter-sort-container,
+    &__products-list {
+      order: initial;
+    }
+
+    &__action-bar-container {
+      grid-column: 2 / 5;
+      grid-row: 1 / 2;
+      padding: 1.5rem 2rem;
+    }
+
+    &__filter-sort-container {
+      grid-column: 1 / 2;
+      grid-row: 2 / span 4;
+      padding: 2rem 1.5rem;
+    }
+
+    &__products-list {
+      grid-column: 2 / 5;
+      grid-row: 2 / span 4;
+      padding: 1.5rem;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .navbar {
+    padding: 1.5rem 3.25rem;
+    gap: 3rem;
+
+    &__toggle {
+      display: none;
+    }
+
+    &__menu {
+      position: static;
+      width: auto;
+      padding: 0;
+      background-color: transparent;
+      border-radius: 0;
+      box-shadow: none;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      pointer-events: auto;
+    }
+
+    &__menu-list {
+      flex-direction: row;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    &__menu-item {
+      padding: 1.5rem 1rem;
+    }
+
+    &__menu-link {
+      padding: 0;
+      border-radius: 0.75rem;
+      background-color: transparent;
+      transition: color 0.3s ease, background-color 0.3s ease;
+
+      &:hover {
+        color: #007bff;
+      }
+    }
+
+    &__menu-button {
+      width: auto;
+    }
+  }
+
+  .cta-btn {
+    width: auto;
   }
 }

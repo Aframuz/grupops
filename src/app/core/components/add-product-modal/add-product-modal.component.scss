@@ -9,3 +9,41 @@
 .agregar-btn:focus {
   background-color: color-mix(in srgb, var(--primary-color) 80%, #000 20%);
 }
+
+.responsive-field-row {
+  flex-direction: column;
+  gap: 1rem;
+
+  .flex-fill {
+    width: 100%;
+  }
+}
+
+.input-group {
+  flex-wrap: wrap;
+
+  .form-control {
+    min-width: 0;
+  }
+
+  .btn {
+    margin-top: 0.75rem;
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .responsive-field-row {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+  .input-group {
+    flex-wrap: nowrap;
+
+    .btn {
+      margin-top: 0;
+      width: auto;
+    }
+  }
+}

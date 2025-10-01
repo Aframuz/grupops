@@ -1,18 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Importing Bootstrap SCSS file. */
-@import 'bootstrap/scss/bootstrap';
+@import "bootstrap/scss/bootstrap";
 
 @font-face {
-    font-family: 'Source Sans Pro';
-    src: url('assets/fonts/SourceSansPro-Regular.woff2') format('woff2'),
+  font-family: "Source Sans Pro";
+  src: url("assets/fonts/SourceSansPro-Regular.woff2") format("woff2");
 }
 
 :root {
-    --primary-color: #00428A;
-    --secondary-color: #C641BE;
+  --primary-color: #00428a;
+  --secondary-color: #c641be;
 }
 
 body {
-    font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
